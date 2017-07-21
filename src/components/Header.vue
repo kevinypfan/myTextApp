@@ -25,6 +25,9 @@
         <router-link to='/count' tag="li" activeClass= "active">
             <a href="#">Count</a>
         </router-link>
+        <router-link to='/model' tag="li" activeClass= "active">
+            <a href="#">Model</a>
+        </router-link>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

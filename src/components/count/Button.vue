@@ -1,20 +1,18 @@
 <template>
   <div>
-     <button class="btn btn-primary" @click="add">add</button>
-     <button class="btn btn-primary" @click="discount">discout</button>
+     <button class="btn btn-primary" @click="addCounter">add</button>
+     <button class="btn btn-primary" @click="minusCounter">discout</button>
   </div>
 </template>
 
 <script>
-
+import { mapMutations } from 'vuex'
     export default{
         methods:{
-            add(){
-                this.$store.state.counter++
-            },
-            discount(){
-                this.$store.state.counter--
-            }
+            ...mapMutations([
+                 'addCounter',
+                'minusCounter'
+            ])
         }
     }
 </script>
