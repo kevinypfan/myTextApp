@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
     state: {
         counter: 0,
-        value: 0
+        value: 0,
+        token: ""
     },
     getters:{
         doubleCounter: state => {
@@ -45,12 +46,12 @@ export const store = new Vuex.Store({
         },
         addNotto({commit},payload){
             setTimeout(()=>{
-               commit('addHunCouter',payload.by) 
+               commit('addHunCouter',payload.by)
             },payload.delay)
         },
         minusNotto({commit},payload){
             setTimeout(()=>{
-               commit('minusHunCouter',payload.by) 
+               commit('minusHunCouter',payload.by)
             },payload.delay)
         },
         updateValue({commit},value){
