@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
     state: {
         counter: 0,
-        value: 0
+        value: 0,
+        user: null
     },
     getters:{
         doubleCounter: state => {
@@ -34,6 +35,9 @@ export const store = new Vuex.Store({
         },
         UPDATEBALUE(state,value){
             state.value = value
+        },
+        setUser (state, payload){
+          state.user = payload
         }
     },
     actions:{
@@ -55,6 +59,11 @@ export const store = new Vuex.Store({
         },
         updateValue({commit},value){
             commit('UPDATEBALUE',value)
+        },
+        //註冊
+        signUserUp({commit}, payload){
+          this.$http.post('/users',payload)
+          commit('setUser', payload.email)
         }
     }
 })
