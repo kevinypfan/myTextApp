@@ -11,12 +11,16 @@ Vue.use(VueRouter)
 const router = new VueRouter({
     mode: 'history',
     routes
-})
+});
+
 
 
 new Vue({
   el: '#app',
     store,
     router,
+    created(){
+      window.localStorage.setItem("lastname", "dioypfan");
+    },
   render: h => h(App)
 })

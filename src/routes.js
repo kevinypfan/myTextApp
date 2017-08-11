@@ -8,7 +8,7 @@ import Model from './components/model/Model.vue'
 
 export const routes = [
     {path: '/' , component: Home},
-    {path: '/user' , component: User, meta: { requiresAuth: true }},
+    {path: '/user' , component: User, meta: { reqAuth: true } },
     {path: '/count' , component: Count},
     {path: '/model' , component: Model},
     {path: '/login' , component: Login},
