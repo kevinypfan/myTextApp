@@ -19,6 +19,7 @@
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
+    <h1>{{note}}</h1>
   </div>
 </template>
 
@@ -27,13 +28,21 @@ export default {
   data (){
     return {
       email: "",
-      password: ""
+      password: "",
+      note: null
     }
   },
   methods: {
     onSignup () {
       this.$store.dispatch('signUserUp', {email: this.email, password: this.password})
     }
+  },
+  created(){
+    this.$http.get('/note').then((response)=>{
+      this.note = response.body.name + response.status
+    },(err)=>{
+      this.note = err
+    });
   }
 }
 </script>

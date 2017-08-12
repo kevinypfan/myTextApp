@@ -62,8 +62,12 @@ export const store = new Vuex.Store({
         },
         //註冊
         signUserUp({commit}, payload){
-          this.$http.post('/users',payload)
-          commit('setUser', payload.email)
+          Vue.http.post('/users',payload).then((res)=>{
+            commit('setUser', payload.email)
+          },(error)=>{
+
+          })
+          // commit('setUser', payload.email)
         }
     }
 })

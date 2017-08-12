@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 const root = __dirname;
 app.use(express.static(root));
-app.use(fallback('index.html', { root: root }));
+
 
 // POST /users
 app.post('/users', (req, res) => {
@@ -28,6 +28,13 @@ app.post('/users', (req, res) => {
   })
 });
 
+app.get('/note', (req, res) => {
+  console.log("sended")
+  res.send({
+    "name":'hello'
+  });
+})
+app.use(fallback('index.html', { root: root }));
 
 app.listen(8000, function () {
     console.log('listening on port 8000');
